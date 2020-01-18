@@ -22,6 +22,10 @@ void pause()
     cin.get();
 }
 
+void clear()
+{
+    system("clear");
+}
 void printNums(int nums[])
 {
     for (int x = 0; x < 10; x++)
