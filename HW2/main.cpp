@@ -1,5 +1,13 @@
 #include "cardType.h"
 
+/*
+Name: Kevin Nguyen
+ID: 1065227
+Email: oggunderscore@gmail.com
+Class: CS1C
+Project: HW2 - Deck of Cards
+*/
+
 void pause()
 {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -11,11 +19,10 @@ void clear()
     system("clear");
 }
 
-string clubs = "Clubs", diamonds = "Diamonds", hearts = "Hearts", spades = "Spades";
-string A = "Ace", K = "King", Q = "Queen", J = "Jack";
-
-void initializeDeck(cardType cards[])
+void initializeDeck(cardType (&cards)[52])
 {
+    string clubs = "Clubs", diamonds = "Diamonds", hearts = "Hearts", spades = "Spades";
+    string A = "Ace", K = "King", Q = "Queen", J = "Jack";
     clear();
     cout << "LOADING DECK..." << endl;
     int z = 0;
@@ -311,11 +318,14 @@ void shuffleDeck(cardType cards[])
     {
         copyCards[x].setInfo(cards[x].getSuit(), cards[x].getRank());
     }
-
-    for (int x = 0; x < 26; x++)
+    int i = 0, j = 26;
+    for (int x = 0; x < 52; x++)
     {
-        cards[x].setInfo(copyCards[x].getSuit(), copyCards[x].getRank());
-        cards[x + 1].setInfo(copyCards[x + 26].getSuit(), copyCards[x + 26].getRank());
+        cards[x].setInfo(copyCards[i].getSuit(), copyCards[i].getRank());
+        cards[x + 1].setInfo(copyCards[j].getSuit(), copyCards[j].getRank());
+        i++;
+        j++;
+        x++;
     }
     cout << "Done shuffling." << endl;
     pause();

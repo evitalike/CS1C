@@ -1,22 +1,31 @@
 #include "cardType.h"
 
-string cardType::getRank() {
+cardType::cardType()
+{
+}
+
+string cardType::getRank()
+{
     return rank;
 }
-string cardType::getSuit() {
+string cardType::getSuit()
+{
     return suit;
 }
 
-void cardType::setInfo(string a, string b) {
+void cardType::setInfo(string a, string b)
+{
     suit = a;
     rank = b;
 }
 
-void cardType::printCard() {
+void cardType::printCard()
+{
     cout << rank << " of " << suit << endl;
 }
 
-bool cardType::equals(cardType &otherCard) {
+bool cardType::equals(cardType &otherCard)
+{
     if (suit == otherCard.getSuit() && rank == otherCard.getRank())
         return true;
     else

@@ -7,6 +7,14 @@
 
 using namespace std;
 
+/*
+Name: Kevin Nguyen
+ID: 1065227
+Email: oggunderscore@gmail.com
+Class: CS1C
+Project: HW1 - Random Numbers
+*/
+
 enum Colors
 {
     BLUE,

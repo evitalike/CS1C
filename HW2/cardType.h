@@ -10,18 +10,19 @@
 
 using namespace std;
 
+class cardType
+{
+public:
+    string getRank();
+    string getSuit();
+    void setInfo(string, string);
+    void printCard();
+    bool equals(cardType &);
+    cardType();
 
-class cardType {
-    public:
-        string getRank();
-        string getSuit();
-        void setInfo(string, string);
-        void printCard();
-        bool equals(cardType &);
-
-    private:
-        string suit;
-        string rank;
+private:
+    string suit;
+    string rank;
 };
 
 #endif
