@@ -319,13 +319,12 @@ void shuffleDeck(cardType cards[])
         copyCards[x].setInfo(cards[x].getSuit(), cards[x].getRank());
     }
     int i = 0, j = 26;
-    for (int x = 0; x < 52; x++)
+    for (int x = 0; x < 52; x = x + 2)
     {
         cards[x].setInfo(copyCards[i].getSuit(), copyCards[i].getRank());
         cards[x + 1].setInfo(copyCards[j].getSuit(), copyCards[j].getRank());
         i++;
         j++;
-        x++;
     }
     cout << "Done shuffling." << endl;
     pause();

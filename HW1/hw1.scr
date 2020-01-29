@@ -1,0 +1,162 @@
+Script started on Wed Jan 22 12:50:10 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ date
+Wed Jan 22 12:50:15 PST 2020
+bash-3.2$ ls -l
+total 32
+drwxr-xr-x  3 ogg  staff    96 Jan 15 22:06 dist
+-rw-r--r--@ 1 ogg  staff  4094 Jan 22 11:52 hw1.cpp
+drwxr-xr-x@ 3 ogg  staff    96 Jan 22 11:52 hw1.dSYM
+-rw-r--r--  1 ogg  staff    43 Jan 22 12:50 hw1.scr
+-rw-r--r--@ 1 ogg  staff   715 Jan 22 11:52 makefile
+-rw-r--r--@ 1 ogg  staff    28 Jan 15 22:03 nums.txt
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw1.cpp -o hw1
+bash-3.2$ ls -l
+total 208
+drwxr-xr-x  3 ogg  staff     96 Jan 15 22:06 dist
+-rwxr-xr-x  1 ogg  staff  88092 Jan 22 12:50 hw1
+-rw-r--r--@ 1 ogg  staff   4094 Jan 22 11:52 hw1.cpp
+drwxr-xr-x@ 3 ogg  staff     96 Jan 22 11:52 hw1.dSYM
+-rw-r--r--  1 ogg  staff     43 Jan 22 12:50 hw1.scr
+-rw-r--r--@ 1 ogg  staff    715 Jan 22 11:52 makefile
+-rw-r--r--@ 1 ogg  staff     28 Jan 15 22:03 nums.txt
+bash-3.2$ ./ h[K[Khw1
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 1
+[H[2JSum: 23
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 2
+[H[2JTripled Number: 2931
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 3
+[H[2JReversed: 779
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 4
+[H[2J
+Generating List...
+
+List generated.
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 5
+[H[2JSorting...
+Sorted.
+
+[H[2JShowing list...
+ 1. 13
+ 2. 32
+ 3. 36
+ 4. 38
+ 5. 38
+ 6. 48
+ 7. 57
+ 8. 58
+ 9. 58
+ 10. 70
+
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 6
+[H[2JOutputting to "nums.txt"...
+Done!
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 7
+[H[2JReading "nums.txt"...
+
+13
+32
+36
+38
+38
+48
+57
+58
+58
+70
+
+[H[2JNum: 977
+ 1 > Sum the digits
+ 2 > Triple the number
+ 3 > Reverse the digits
+ 4 > Generate 10 random Numbers
+ 5 > Sort & Show list
+ 6 > Save list to file
+ 7 > Read File
+ 8 > Exit
+
+Input > 8
+[H[2Jbash-3.2$ exit
+exit
+
+Script done on Wed Jan 22 12:51:13 2020

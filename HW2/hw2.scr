@@ -1,0 +1,104 @@
+Script started on Wed Jan 22 23:47:48 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ make all
+g++ -std=c++14 -Wall -g -c cardType.cpp -o cardType.o
+g++ -std=c++14 -Wall -g hw2.cpp -o hw2 cardType.o
+bash-3.2$ ./hw2
+[H[2J	House of Cards Program
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Exit
+
+ Input: 1
+[H[2JLOADING DECK...
+DONE LOADING...
+
+[H[2J	House of Cards Program
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Exit
+
+ Input: 2
+[H[2JStarting Shuffle...
+Done shuffling.
+
+[H[2J	House of Cards Program
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Exit
+
+ Input: 3
+[H[2JAce of Clubs
+Ace of Hearts
+2 of Clubs
+2 of Hearts
+3 of Clubs
+3 of Hearts
+4 of Clubs
+4 of Hearts
+5 of Clubs
+5 of Hearts
+6 of Clubs
+6 of Hearts
+7 of Clubs
+7 of Hearts
+8 of Clubs
+8 of Hearts
+9 of Clubs
+9 of Hearts
+10 of Clubs
+10 of Hearts
+Jack of Clubs
+Jack of Hearts
+Queen of Clubs
+Queen of Hearts
+King of Clubs
+King of Hearts
+Ace of Diamonds
+Ace of Spades
+2 of Diamonds
+2 of Spades
+3 of Diamonds
+3 of Spades
+4 of Diamonds
+4 of Spades
+5 of Diamonds
+5 of Spades
+6 of Diamonds
+6 of Spades
+7 of Diamonds
+7 of Spades
+8 of Diamonds
+8 of Spades
+9 of Diamonds
+9 of Spades
+10 of Diamonds
+10 of Spades
+Jack of Diamonds
+Jack of Spades
+Queen of Diamonds
+Queen of Spades
+King of Diamonds
+King of Spades
+
+[H[2J	House of Cards Program
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Exit
+
+ Input: 4
+bash-3.2$ exit
+exit
+
+Script done on Wed Jan 22 23:48:30 2020

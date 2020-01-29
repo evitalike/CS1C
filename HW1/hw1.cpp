@@ -22,7 +22,7 @@ enum Colors
     RED
 };
 
-typedef unsigned int size_t;
+typedef unsigned int yikes;
 
 void pause()
 {
