@@ -1,5 +1,5 @@
 #include "employeeType.h"
-#include "dateType.h"
+#include "dateType.cpp"
 #include "mainHeader.h"
 
 //Constructors
@@ -12,7 +12,7 @@ employeeType::employeeType()
     gender = 'N';
     jobTitle = "";
     salary = "";
-    hireDate.setDate(00, 00, 0000);
+    hireDate.setDate(0, 0, 0);
 }
 employeeType::employeeType(string name1, string id1, string phoneNumber1, int age1, char gender1, string jobTitle1, string salary1, int day1, int month1, int year1)
 {
@@ -58,7 +58,7 @@ void employeeType::setSalary(string salary1)
 {
     salary = salary1;
 }
-void employeeType::setHireDate(int day1, int month1, int year1) // WILL Change to DateType
+void employeeType::setHireDate(int day1, int month1, int year1) 
 {
     hireDate.setDate(month1, day1, year1);
 }
