@@ -18,7 +18,7 @@ Name: Kevin Nguyen
 ID: 1065227
 Email: oggunderscore@gmail.com
 Class: CS1C
-Project: HW3 - Class Interfaces, Inheritance & Composition
+Project: HW4 - Friend Functions & Operator Overloading
 */
 
 int main()
@@ -136,7 +136,9 @@ int main()
 
     cout << e1.getName() << " is " << e1.getAge() << "years old." << endl;
     cout << "POST INCREMENTING." << endl;
-    e1++;
+    employeeType e3 = e1++;
+    int tempAge = e3.getAge();
+    cout << e1.getName() << " is " << tempAge << "years old. Posting age again after this statement." << endl;
     cout << e1.getName() << " is " << e1.getAge() << "years old." << endl;
 
     pause();
