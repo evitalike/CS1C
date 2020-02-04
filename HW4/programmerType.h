@@ -6,6 +6,8 @@
 class programmerType : public employeeType
 {
 public:
+    friend bool checkNum(employeeType, programmerType);
+
     //Getters
     int getDepartmentNumber();
     string getSupervisor();

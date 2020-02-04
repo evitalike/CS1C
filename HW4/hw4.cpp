@@ -44,8 +44,22 @@ int main()
     pause();
     clear();
 
+    //Step 1 Checking num using friend function.
+    bool check = false;
+    check = checkNum(e2, p1);
+
+    if (check == true)
+    {
+        cout << e1.getName() << " and " << p1.getName() << " have the same numbers!" << endl;
+    }
+    else
+    {
+        cout << e1.getName() << " and " << p1.getName() << " don't have the same numbers!" << endl;
+    }
+
+    pause();
     //Comparing e1 and p1
-    if (e1.getPhoneNumber() == p1.getPhoneNumber())
+    if (e1 == p1)
     {
         cout << e1.getName() << "(" << e1.getPhoneNumber() << ") EQUALS " << p1.getName() << "(" << p1.getPhoneNumber() << ")\n"
              << endl;
@@ -58,7 +72,7 @@ int main()
 
     e1.setPhoneNumber("949-234-1234");
     //Comparing e1 and p1 after change
-    if (e1.getPhoneNumber() == p1.getPhoneNumber())
+    if (e1 == p1)
     {
         cout << e1.getName() << "(" << e1.getPhoneNumber() << ") EQUALS " << p1.getName() << "(" << p1.getPhoneNumber() << ")\n"
              << endl;

@@ -1,6 +1,14 @@
 #include "mainHeader.h"
 #include "programmerType.h"
 
+bool checkNum(employeeType me, programmerType other)
+{
+    if (me.getPhoneNumber() == other.getPhoneNumber())
+        return true;
+    else
+        return false;
+}
+
 //Constructors
 programmerType::programmerType()
 {
