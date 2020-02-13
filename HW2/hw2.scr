@@ -1,40 +1,67 @@
-Script started on Wed Jan 22 23:47:48 2020
+Script started on Tue Feb 11 19:07:10 2020
 
 The default interactive shell is now zsh.
 To update your account to use zsh, please run `chsh -s /bin/zsh`.
 For more details, please visit https://support.apple.com/kb/HT208050.
-[?1034hbash-3.2$ make all
+[?1034hbash-3.2$ date
+Tue Feb 11 19:07:13 PST 2020
+bash-3.2$ ls -l
+total 56
+-rw-r--r--@ 1 ogg  staff    464 Jan 18 23:01 cardType.cpp
+-rw-r--r--@ 1 ogg  staff    401 Jan 18 23:09 cardType.h
+drwxr-xr-x  3 ogg  staff     96 Jan 21 01:31 dist
+-rw-r--r--@ 1 ogg  staff  10164 Feb 11 19:06 hw2.cpp
+drwxr-xr-x@ 3 ogg  staff     96 Jan 22 23:45 hw2.dSYM
+-rw-r--r--  1 ogg  staff     43 Feb 11 19:07 hw2.scr
+-rw-r--r--@ 1 ogg  staff    914 Feb 11 13:52 makefile
+bash-3.2$ make all
 g++ -std=c++14 -Wall -g -c cardType.cpp -o cardType.o
 g++ -std=c++14 -Wall -g hw2.cpp -o hw2 cardType.o
+bash-3.2$ ls-[K -l
+total 400
+-rw-r--r--@ 1 ogg  staff     464 Jan 18 23:01 cardType.cpp
+-rw-r--r--@ 1 ogg  staff     401 Jan 18 23:09 cardType.h
+-rw-r--r--  1 ogg  staff  109168 Feb 11 19:07 cardType.o
+drwxr-xr-x  3 ogg  staff      96 Jan 21 01:31 dist
+-rwxr-xr-x  1 ogg  staff   64032 Feb 11 19:07 hw2
+-rw-r--r--@ 1 ogg  staff   10164 Feb 11 19:06 hw2.cpp
+drwxr-xr-x@ 3 ogg  staff      96 Jan 22 23:45 hw2.dSYM
+-rw-r--r--  1 ogg  staff      43 Feb 11 19:07 hw2.scr
+-rw-r--r--@ 1 ogg  staff     914 Feb 11 13:52 makefile
 bash-3.2$ ./hw2
 [H[2J	House of Cards Program
+	  Times Shuffled: 0
 
  1 > Load Deck
  2 > Perform Perfect Shuffle
  3 > Print Deck
- 4 > Exit
+ 4 > Shuffle 7 times
+ 5 > Exit
 
  Input: 1
 [H[2JLOADING DECK...
 DONE LOADING...
 
 [H[2J	House of Cards Program
+	  Times Shuffled: 0
 
  1 > Load Deck
  2 > Perform Perfect Shuffle
  3 > Print Deck
- 4 > Exit
+ 4 > Shuffle 7 times
+ 5 > Exit
 
  Input: 2
 [H[2JStarting Shuffle...
-Done shuffling.
-
+Shuffled.
 [H[2J	House of Cards Program
+	  Times Shuffled: 1
 
  1 > Load Deck
  2 > Perform Perfect Shuffle
  3 > Print Deck
- 4 > Exit
+ 4 > Shuffle 7 times
+ 5 > Exit
 
  Input: 3
 [H[2JAce of Clubs
@@ -91,14 +118,103 @@ King of Diamonds
 King of Spades
 
 [H[2J	House of Cards Program
+	  Times Shuffled: 1
 
  1 > Load Deck
  2 > Perform Perfect Shuffle
  3 > Print Deck
- 4 > Exit
+ 4 > Shuffle 7 times
+ 5 > Exit
 
  Input: 4
-bash-3.2$ exit
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2JStarting Shuffle...
+Shuffled.
+[H[2J	House of Cards Program
+	  Times Shuffled: 8
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Shuffle 7 times
+ 5 > Exit
+
+ Input: 3
+[H[2JAce of Clubs
+2 of Clubs
+3 of Clubs
+4 of Clubs
+5 of Clubs
+6 of Clubs
+7 of Clubs
+8 of Clubs
+9 of Clubs
+10 of Clubs
+Jack of Clubs
+Queen of Clubs
+King of Clubs
+Ace of Diamonds
+2 of Diamonds
+3 of Diamonds
+4 of Diamonds
+5 of Diamonds
+6 of Diamonds
+7 of Diamonds
+8 of Diamonds
+9 of Diamonds
+10 of Diamonds
+Jack of Diamonds
+Queen of Diamonds
+King of Diamonds
+Ace of Hearts
+2 of Hearts
+3 of Hearts
+4 of Hearts
+5 of Hearts
+6 of Hearts
+7 of Hearts
+8 of Hearts
+9 of Hearts
+10 of Hearts
+Jack of Hearts
+Queen of Hearts
+King of Hearts
+Ace of Spades
+2 of Spades
+3 of Spades
+4 of Spades
+5 of Spades
+6 of Spades
+7 of Spades
+8 of Spades
+9 of Spades
+10 of Spades
+Jack of Spades
+Queen of Spades
+King of Spades
+
+[H[2J	House of Cards Program
+	  Times Shuffled: 8
+
+ 1 > Load Deck
+ 2 > Perform Perfect Shuffle
+ 3 > Print Deck
+ 4 > Shuffle 7 times
+ 5 > Exit
+
+ Input: 5
+[H[2Jbash-3.2$ exit
 exit
 
-Script done on Wed Jan 22 23:48:30 2020
+Script done on Tue Feb 11 19:07:41 2020

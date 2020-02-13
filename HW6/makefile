@@ -1,5 +1,5 @@
 ##Set flags and gcc variable for easier reading
-ASSIGNMENT = hw5
+ASSIGNMENT = hw6
 CC = g++
 FLAGS = -std=c++14 -Wall -g
 
@@ -7,7 +7,7 @@ FLAGS = -std=c++14 -Wall -g
 
 
 ##The list of all project files
-PROJFILES = makefile $(ASSIGNMENT).cpp $(ASSIGNMENT).scr
+PROJFILES = makefile $(ASSIGNMENT).cpp 
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)

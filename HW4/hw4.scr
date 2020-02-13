@@ -1,36 +1,58 @@
-Script started on Sat Feb  1 14:50:10 2020
+Script started on Tue Feb  4 14:21:55 2020
 
 The default interactive shell is now zsh.
 To update your account to use zsh, please run `chsh -s /bin/zsh`.
 For more details, please visit https://support.apple.com/kb/HT208050.
 [?1034hbash-3.2$ date
-Sat Feb  1 14:50:12 PST 2020
-bash-3.2$ ls -l
+Tue Feb  4 14:21:59 PST 2020
+bash-3.2$ ls l[K-l
 total 112
 -rw-r--r--@ 1 ogg  staff   483 Jan 28 15:42 dateType.cpp
 -rw-r--r--@ 1 ogg  staff   288 Jan 28 15:40 dateType.h
 drwxr-xr-x  3 ogg  staff    96 Jan 28 23:56 dist
--rw-r--r--@ 1 ogg  staff  4648 Jan 30 15:06 employeeType.cpp
--rw-r--r--@ 1 ogg  staff  1303 Jan 30 15:05 employeeType.h
--rw-r--r--@ 1 ogg  staff  4664 Feb  1 14:49 hw4.cpp
+-rw-r--r--@ 1 ogg  staff  4648 Feb  4 14:13 employeeType.cpp
+-rw-r--r--@ 1 ogg  staff  1303 Feb  4 14:14 employeeType.h
+-rw-r--r--@ 1 ogg  staff  4964 Feb  4 14:19 hw4.cpp
 drwxr-xr-x@ 3 ogg  staff    96 Jan 30 13:06 hw4.dSYM
--rw-r--r--  1 ogg  staff    43 Feb  1 14:50 hw4.scr
+-rw-r--r--@ 1 ogg  staff    43 Feb  4 14:21 hw4.scr
 -rw-r--r--@ 1 ogg  staff   186 Jan 30 13:27 mainHeader.h
 -rw-r--r--@ 1 ogg  staff  1278 Jan 30 13:06 makefile
--rw-r--r--@ 1 ogg  staff  2070 Jan 30 13:27 programmerType.cpp
--rw-r--r--@ 1 ogg  staff   848 Jan 30 13:29 programmerType.h
+-rw-r--r--@ 1 ogg  staff  2235 Feb  4 14:13 programmerType.cpp
+-rw-r--r--@ 1 ogg  staff   905 Feb  4 14:17 programmerType.h
 -rw-r--r--@ 1 ogg  staff  2139 Jan 28 15:54 softwareArchitectType.cpp
 -rw-r--r--@ 1 ogg  staff   840 Jan 30 13:30 softwareArchitectType.h
 bash-3.2$ make all
 g++ -std=c++14 -Wall -g -c employeeType.cpp -o employeeType.o
 g++ -std=c++14 -Wall -g -c programmerType.cpp -o programmerType.o
-./g++ -std=c++14 -Wall -g -c softwareArchitectType.cpp -o softwareArchitectType.o
+g++ -std=c++14 -Wall -g -c softwareArchitectType.cpp -o softwareArchitectType.o
 g++ -std=c++14 -Wall -g hw4.cpp -o hw4 employeeType.o programmerType.o softwareArchitectType.o
+bash-3.2$ ls -l
+total 1160
+-rw-r--r--@ 1 ogg  staff     483 Jan 28 15:42 dateType.cpp
+-rw-r--r--@ 1 ogg  staff     288 Jan 28 15:40 dateType.h
+drwxr-xr-x  3 ogg  staff      96 Jan 28 23:56 dist
+-rw-r--r--@ 1 ogg  staff    4648 Feb  4 14:13 employeeType.cpp
+-rw-r--r--@ 1 ogg  staff    1303 Feb  4 14:14 employeeType.h
+-rw-r--r--  1 ogg  staff  165168 Feb  4 14:22 employeeType.o
+-rwxr-xr-x  1 ogg  staff  120692 Feb  4 14:22 hw4
+-rw-r--r--@ 1 ogg  staff    4964 Feb  4 14:19 hw4.cpp
+drwxr-xr-x@ 3 ogg  staff      96 Jan 30 13:06 hw4.dSYM
+-rw-r--r--@ 1 ogg  staff      43 Feb  4 14:21 hw4.scr
+-rw-r--r--@ 1 ogg  staff     186 Jan 30 13:27 mainHeader.h
+-rw-r--r--@ 1 ogg  staff    1278 Jan 30 13:06 makefile
+-rw-r--r--@ 1 ogg  staff    2235 Feb  4 14:13 programmerType.cpp
+-rw-r--r--@ 1 ogg  staff     905 Feb  4 14:17 programmerType.h
+-rw-r--r--  1 ogg  staff  122572 Feb  4 14:22 programmerType.o
+-rw-r--r--@ 1 ogg  staff    2139 Jan 28 15:54 softwareArchitectType.cpp
+-rw-r--r--@ 1 ogg  staff     840 Jan 30 13:30 softwareArchitectType.h
+-rw-r--r--  1 ogg  staff  119292 Feb  4 14:22 softwareArchitectType.o
 bash-3.2$ ./hw4
 [H[2JBeginning creation of employees...
 Loaded employees! Hit ENTER to compare phone numbers.
 
-[H[2JJimmy Fallon(949-555-1234) EQUALS Sam Software(949-555-1234)
+[H[2JJimmy Fallon and Sam Software have the same numbers!
+
+Jimmy Fallon(949-555-1234) EQUALS Sam Software(949-555-1234)
 
 Jimmy Fallon(949-234-1234) DOES NOT EQUAL Sam Software(949-555-1234)
 
@@ -49,27 +71,27 @@ Stephan Colbert is 53years old.
 
 Press ENTER to begin employee input.
 
-[H[2J[H[2J  Input Name > K Kevin
-[H[2J  Input ID > Ng  12345
+[H[2J[H[2J  Input Name > Kevin
+[H[2J  Input ID > 12345
 [H[2J  Input Phone Number > 9495050967
-[H[2J  Input Age > 19
+[H[2J  Input Age > 5
 [H[2J  Input Gender > M
 [H[2J  Input Job Title > Programmer
-[H[2J  Input Salary > 100000   ,000
-[H[2J  Input Hire Date > 07/02/2013
-7/2/2013
+[H[2J  Input Salary > 110
+[H[2J  Input Hire Date > 02/02/2000
+2/2/2000
 [H[2J
 Printing employee! Hit ENTER to continue.
 
 [H[2J
     >>  Kevin  <<
 ID > 12345
-Age > 19
+Age > 5
 Phone # > 9495050967
 Title > Programmer
-Salary > $100,000
+Salary > $110
 Gender > M
-Hire Date > 2/7/2013
+Hire Date > 2/2/2000
 
 
 Testing Preincrement and postincrement of age! ENTER to continue...
@@ -86,4 +108,4 @@ Jimmy Fallon is 47years old.
 [H[2Jbash-3.2$ exit
 exit
 
-Script done on Sat Feb  1 14:51:03 2020
+Script done on Tue Feb  4 14:23:30 2020

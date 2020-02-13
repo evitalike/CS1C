@@ -8,7 +8,7 @@ OBJ_1 = cardType.o
 DEF_1 = cardType.cpp
 
 ##The list of all project files
-PROJFILES = makefile $(ASSIGNMENT).cpp cardType.h cardType.cpp
+PROJFILES = makefile $(ASSIGNMENT).cpp $(ASSIGNMENT).scr cardType.h cardType.cpp
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)

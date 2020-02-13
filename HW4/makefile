@@ -17,7 +17,7 @@ HDR_3 = softwareArchitectType.h
 CPP_3 = softwareArchitectType.cpp
 
 ##The list of all project files
-PROJFILES = makefile $(ASSIGNMENT).cpp $(HDR_1) $(CPP_1) $(HDR_2) $(CPP_2) $(HDR_3) $(CPP_3) 
+PROJFILES = makefile $(ASSIGNMENT).cpp $(ASSIGNMENT).scr $(HDR_1) $(CPP_1) $(HDR_2) $(CPP_2) $(HDR_3) $(CPP_3) 
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)

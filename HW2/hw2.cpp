@@ -326,8 +326,7 @@ void shuffleDeck(cardType cards[])
         i++;
         j++;
     }
-    cout << "Done shuffling." << endl;
-    pause();
+    cout << "Shuffled." << endl;
 }
 
 void printDeck(cardType cards[])
@@ -345,10 +344,11 @@ int main()
     cardType cards[52];
     bool exit = false;
     char selection;
+    int shuffleCount = 0;
     do
     {
         clear();
-        cout << "\tHouse of Cards Program\n\n 1 > Load Deck\n 2 > Perform Perfect Shuffle\n 3 > Print Deck\n 4 > Exit\n\n Input: ";
+        cout << "\tHouse of Cards Program\n\t  Times Shuffled: " << shuffleCount << "\n\n 1 > Load Deck\n 2 > Perform Perfect Shuffle\n 3 > Print Deck\n 4 > Shuffle 7 times\n 5 > Exit\n\n Input: ";
         cin >> selection;
         switch (selection)
         {
@@ -357,12 +357,20 @@ int main()
             break;
         case '2':
             shuffleDeck(cards);
+            shuffleCount++;
             break;
         case '3':
             printDeck(cards);
             break;
         case '4':
+            for (int x = 0; x < 7; x++) {
+                shuffleDeck(cards);
+                shuffleCount++;
+            }
+            break;
+        case '5':
             exit = true;
+            clear();
             break;
         default:
             cout << "Error: Invalid Input." << endl;
