@@ -2,13 +2,27 @@
 #define container_H
 
 #include "imports.h"
+#include "item.h"
 
 class container {
 
     public:
 
-    private:
+        void populateInventory();
+        void printReceipt();
+        void printInventory();
+        void purchase();
+        
+        container();
+        container(container &otherObj);
+        ~container();
 
+        
+    private:
+        item *items;
+        int *buying;
+        float tax = 0.0825;
+        static float total;
     
 
 };
