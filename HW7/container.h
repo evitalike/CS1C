@@ -4,28 +4,30 @@
 #include "imports.h"
 #include "item.h"
 
-class container {
+namespace manager
+{
+    class container {
 
-    public:
+        public:
+            void printReceipt();
+            void printInventory();
+            void makePurchase();
+            
+            container();
+            container(container &otherObj);
+            ~container();
 
-        void populateInventory();
-        void printReceipt();
-        void printInventory();
-        void purchase();
+            
+        private:
+            item *items;
+            int *buyList;
+            double tax = 0.0825;
+            static double total;
         
-        container();
-        container(container &otherObj);
-        ~container();
 
-        
-    private:
-        item *items;
-        int *buyList;
-        float tax = 0.0825;
-        static float total;
-    
+    };
+}
 
-};
 
 
 #endif

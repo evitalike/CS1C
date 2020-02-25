@@ -2,101 +2,92 @@
 #include "item.h"
 #include "container.h"
 
-//Declare Static Variable
-float container::total = 0.0;
-
-//Constructors
-container::container()
+namespace manager 
 {
-    items = new item;
-    buyList = new int[5];
-}
+    //Declare Static Variable
+    double container::total = 0.0;
 
-container::container(container &otherObj)
-{
-    items = new item[5];
-    buyList = new int[5];
-    total = 0;
-
-    for (int x = 0; x < 5; x++)
+    //Constructors
+    container::container()
     {
-        buyList[x] = otherObj.buyList[x];
-        items[x] = otherObj.items[x];
+        items = new item;
+        buyList = new int[5];
     }
-}
 
-//Destructor
-container::~container()
-{
-    delete[] items;
-    delete[] buyList;
-}
-
-
-//Functions
-void container::printReceipt()
-{
-    cout << "\t>> Purchase Receipt <<" << endl;
-
-    for (int x = 0; x < 5; x++)
+    container::container(container &otherObj)
     {
-        if (x == 0 && buyList[0] >= 0)
+        //Create the copy lists of new type
+        items = new item[5];
+        buyList = new int[5];
+        total = 0;
+
+        //Copy the information over
+        for (int x = 0; x < 5; x++)
         {
-            cout << "Nike Shoes >        " << buyList[0] << "    $" << buyList[0] * items[0].nikeShoesPrice << endl;
-            total += buyList[0] * items[0].nikeShoesPrice;
-        }
-        if (x == 1 && buyList[1] >= 0)
-        {
-            cout << "Under Armour Tee >  " << buyList[1] << "    $" << buyList[1] * items[0].armourPrice << endl;
-            total += buyList[1] * items[0].armourPrice;
-        }
-        if (x == 2 && buyList[2] >= 0)
-        {
-            cout << "Brooks Shoes >      " << buyList[2] << "    $" << buyList[2] * items[0].brooksPrice << endl;
-            total += buyList[2] * items[0].brooksPrice;
-        }
-        if (x == 3 && buyList[3] >= 0)
-        {
-            cout << "Asics Shoes >       " << buyList[3] << "    $" << buyList[3] * items[0].asicsPrice << endl;
-            total += buyList[3] * items[0].asicsPrice;
-        }
-        if (x == 4 && buyList[4] >= 0)
-        {
-            cout << "Nike Shorts >       " << buyList[4] << "    $" << buyList[4] * items[0].nikeShortsPrice << endl;
-            total += buyList[4] * items[0].nikeShortsPrice;
+            items[x] = otherObj.items[x];
+            buyList[x] = otherObj.buyList[x];
         }
     }
-    cout << fixed << setprecision(2);
 
-    cout << "\nSubtotal     >     $" << total << endl;
-    cout << "Tax (8.25%)  >     $" << (total * tax) << endl;
-    cout << "\nTotal        >     $" << total + (total * tax) << endl;
-}
+    //Destructor
+    container::~container()
+    {
+        delete [] items;
+        delete [] buyList;
+    }
 
-void container::printInventory()
-{
-    cout << "\t>> Inventory in Stock << " << endl;
-    cout << "Nike Shoes >        " << items[0].nikeShoesQty << endl;
-    cout << "Under Armour Tee >  " << items[0].armourQty << endl;
-    cout << "Brooks Shoes >      " << items[0].brooksQty << endl;
-    cout << "Asics Shoes >       " << items[0].asicsQty << endl;
-    cout << "Nike Shorts >       " << items[0].nikeShortsQty << endl;
-    cout << endl;
-}
 
-void container::purchase()
-{
-    cout << "\nPurchases executed.\n" << endl;
+    //Functions
+    void container::makePurchase()
+    {
+        cout << "\nPurchases executed.\n" << endl;
 
-    // Customer Purchases
-    buyList[0] = 2;
-    buyList[1] = 3;
-    buyList[2] = 1;
-    buyList[4] = 4;
+        // Customer Purchases
+        buyList[0] = 2;
+        buyList[1] = 3;
+        buyList[2] = 1;
+        buyList[4] = 4;
 
-    // Deduct from Inventory
-    items[0].nikeShoesQty -= 2;
-    items[0].armourQty -= 3;
-    items[0].brooksQty -= 1;
-    items[0].nikeShortsQty -= 4;
+        // Deduct from Inventory
+        items[0].numNikeShoes -= 2;
+        items[0].numArmourShirt -= 3;
+        items[0].numBrookShoes -= 1;
+        items[0].numNikeShorts -= 4;
+    }
+
+    void container::printInventory()
+    {
+        cout << "\t>> Inventory in Stock << " << endl;
+        cout << "Nike Shoes > " << items[0].numNikeShoes << endl;
+        cout << "Under Armour Tee > " << items[0].numArmourShirt << endl;
+        cout << "Brooks Shoes > " << items[0].numBrookShoes << endl;
+        cout << "Asics Shoes > " << items[0].numAsics << endl;
+        cout << "Nike Shorts > " << items[0].numNikeShorts << endl;
+        cout << endl;
+    }
+
+    void container::printReceipt()
+    {
+        cout << fixed << setprecision(2);
+        cout << "\t>> Purchase Receipt <<" << endl;
+
+        cout << "Nike Shoes (" << buyList[0] << ") > $" << buyList[0] * items[0].nikeShoesCost << endl;
+        total += buyList[0] * items[0].nikeShoesCost;
+
+        cout << "Under Armour Tee (" << buyList[1] << ") > $" << buyList[1] * items[0].armourCost << endl;
+        total += buyList[1] * items[0].armourCost;
+
+        cout << "Brooks Shoes (" << buyList[2] << ") > $" << buyList[2] * items[0].brooksCost << endl;
+        total += buyList[2] * items[0].brooksCost;
+
+        cout << "Asics Shoes (" << buyList[3] << ") > $" << buyList[3] * items[0].asicsCost << endl;
+        total += buyList[3] * items[0].asicsCost;
+
+        cout << "Nike Shorts (" << buyList[4] << ") > $" << buyList[4] * items[0].nikeShortsCost << endl;
+        total += buyList[4] * items[0].nikeShortsCost;
+
+        cout << "\nSubtotal > $" << total << endl;
+        cout << "Tax (8.25%) > $" << (total * tax) << endl;
+        cout << "\nTotal > $" << total + (total * tax) << endl;
+    }
 }

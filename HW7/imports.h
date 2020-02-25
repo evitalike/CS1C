@@ -7,6 +7,4 @@
 
 using namespace std;
 
-
-
 #endif

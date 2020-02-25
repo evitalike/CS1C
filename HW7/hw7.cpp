@@ -23,11 +23,11 @@ static void clear()
 int main() {
 
     clear();
-    container inventory; // Create the inventory
+    manager::container inventory; // Create the inventory
 
     //Make purchases and print it.
     inventory.printInventory();
-    inventory.purchase();
+    inventory.makePurchase();
     inventory.printReceipt();
 
     cout << "\nPress any key to proceed to show remaining inventory...\n" << endl;
@@ -35,7 +35,7 @@ int main() {
     clear();
 
     //Copy inventory
-    container newInventory(inventory);
+    manager::container newInventory(inventory);
 
     //Print copied inventory
     newInventory.printInventory();

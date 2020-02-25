@@ -3,19 +3,10 @@
 
 #include "imports.h"
 
-struct item {
-
-    int nikeShoesQty = 22;
-    int armourQty = 33;
-    int brooksQty = 11;
-    int asicsQty = 20;
-    int nikeShortsQty = 77;
-
-    float nikeShoesPrice = 145.99;
-    float armourPrice = 29.99;
-    float brooksPrice = 111.44;
-    float asicsPrice = 165.88;
-    float nikeShortsPrice = 45.77;
+class item {
+    public: 
+        int numNikeShoes = 22, numArmourShirt = 33, numBrookShoes = 11, numAsics = 20, numNikeShorts = 77;
+        double nikeShoesCost = 145.99, armourCost = 29.99, brooksCost = 111.44, asicsCost = 165.88, nikeShortsCost = 45.77;
 
 };
 
