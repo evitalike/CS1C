@@ -22,16 +22,23 @@ static void clear()
 
 int main() {
 
-    container myInv;
+    clear();
+    container inventory; // Create the inventory
 
-    myInv.purchase();
-    myInv.printReceipt();
+    //Make purchases and print it.
+    inventory.printInventory();
+    inventory.purchase();
+    inventory.printReceipt();
 
-    cout << "\n\n";
+    cout << "\nPress any key to proceed to show remaining inventory...\n" << endl;
+    pause();
+    clear();
 
-    container newInv(myInv);
+    //Copy inventory
+    container newInventory(inventory);
 
-    newInv.printInventory();
+    //Print copied inventory
+    newInventory.printInventory();
 
     pause();
     clear();

@@ -2,129 +2,101 @@
 #include "item.h"
 #include "container.h"
 
-static void pause()
-{
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-
-static void clear()
-{
-    system("clear");
-}
-
+//Declare Static Variable
 float container::total = 0.0;
 
+//Constructors
 container::container()
 {
     items = new item;
-    buying = new int[5];
+    buyList = new int[5];
 }
 
 container::container(container &otherObj)
 {
-    items = new item;
-    buying = new int[5];
-    total = 0.0;
+    items = new item[5];
+    buyList = new int[5];
+    total = 0;
 
-    for (int i = 0; i < 5; i++)
+    for (int x = 0; x < 5; x++)
     {
-        buying[i] = otherObj.buying[i];
+        buyList[x] = otherObj.buyList[x];
+        items[x] = otherObj.items[x];
     }
 }
 
+//Destructor
 container::~container()
 {
     delete[] items;
-    delete[] buying;
+    delete[] buyList;
 }
 
+
+//Functions
 void container::printReceipt()
 {
-    cout << "~ RECEIPT~" << endl;
+    cout << "\t>> Purchase Receipt <<" << endl;
 
-    for (int i = 0; i < 5; i++)
+    for (int x = 0; x < 5; x++)
     {
-        switch (i)
+        if (x == 0 && buyList[0] >= 0)
         {
-        case 0:
-            if (buying[0] != 0)
-            {
-                cout << "NIKE BASKETBALL SHOES:  " << buying[0] << "    $" << buying[0] * items[0].nikeShoesPrice
-                          << endl;
-                total += buying[0] * items[0].nikeShoesPrice;
-            }
-            break;
-        case 1:
-            if (buying[1] != 0)
-            {
-                cout << "UNDER ARMOUR T-SHIRTS:  " << buying[1] << "    $" << buying[1] * items[0].armourPrice
-                          << endl;
-                total += buying[1] * items[0].armourPrice;
-            }
-            break;
-        case 2:
-            if (buying[2] != 0)
-            {
-                cout << "BROOKS RUNNING SHOES:   " << buying[2] << "    $" << buying[2] * items[0].brooksPrice
-                          << endl;
-                total += buying[2] * items[0].brooksPrice;
-            }
-            break;
-        case 3:
-            if (buying[3] != 0)
-            {
-                cout << "ASICS RUNNING SHOES:    " << buying[3] << "    $" << buying[3] * items[0].asicsPrice
-                          << endl;
-                total += buying[3] * items[0].asicsPrice;
-            }
-            break;
-        case 4:
-            if (buying[4] != 0)
-            {
-                cout << "NIKE SHORTS:            " << buying[4] << "    $" << buying[4] * items[0].nikeShortsPrice
-                          << endl;
-                total += buying[4] * items[0].nikeShortsPrice;
-            }
-            break;
+            cout << "Nike Shoes >        " << buyList[0] << "    $" << buyList[0] * items[0].nikeShoesPrice << endl;
+            total += buyList[0] * items[0].nikeShoesPrice;
+        }
+        if (x == 1 && buyList[1] >= 0)
+        {
+            cout << "Under Armour Tee >  " << buyList[1] << "    $" << buyList[1] * items[0].armourPrice << endl;
+            total += buyList[1] * items[0].armourPrice;
+        }
+        if (x == 2 && buyList[2] >= 0)
+        {
+            cout << "Brooks Shoes >      " << buyList[2] << "    $" << buyList[2] * items[0].brooksPrice << endl;
+            total += buyList[2] * items[0].brooksPrice;
+        }
+        if (x == 3 && buyList[3] >= 0)
+        {
+            cout << "Asics Shoes >       " << buyList[3] << "    $" << buyList[3] * items[0].asicsPrice << endl;
+            total += buyList[3] * items[0].asicsPrice;
+        }
+        if (x == 4 && buyList[4] >= 0)
+        {
+            cout << "Nike Shorts >       " << buyList[4] << "    $" << buyList[4] * items[0].nikeShortsPrice << endl;
+            total += buyList[4] * items[0].nikeShortsPrice;
         }
     }
     cout << fixed << setprecision(2);
 
-    cout << "\nSUB TOTAL    :     $" << total << endl;
-    cout << "TAX (8.25%)  :     $" << (total * tax) << endl;
-    cout << "\nTOTAL        :     $" << total + (total * tax) << endl;
+    cout << "\nSubtotal     >     $" << total << endl;
+    cout << "Tax (8.25%)  >     $" << (total * tax) << endl;
+    cout << "\nTotal        >     $" << total + (total * tax) << endl;
 }
 
 void container::printInventory()
 {
-    cout << ">> Inventory in Stock << " << endl;
-    cout << "NIKE BASKETBALL SHOES:  " << items[0].nikeShoesQty << endl;
-    cout << "UNDER ARMOUR T-SHIRTS:  " << items[0].armourQty << endl;
-    cout << "BROOKS RUNNING SHOES:   " << items[0].brooksQty << endl;
-    cout << "ASICS RUNNING SHOES:    " << items[0].asicsQty << endl;
-    cout << "NIKE SHORTS:            " << items[0].nikeShortsQty << endl;
+    cout << "\t>> Inventory in Stock << " << endl;
+    cout << "Nike Shoes >        " << items[0].nikeShoesQty << endl;
+    cout << "Under Armour Tee >  " << items[0].armourQty << endl;
+    cout << "Brooks Shoes >      " << items[0].brooksQty << endl;
+    cout << "Asics Shoes >       " << items[0].asicsQty << endl;
+    cout << "Nike Shorts >       " << items[0].nikeShortsQty << endl;
     cout << endl;
 }
 
 void container::purchase()
 {
-    // Display current inventory prior to purchase
-    clear();
-    printInventory();
+    cout << "\nPurchases executed.\n" << endl;
 
     // Customer Purchases
-    buying[0] = 2;
-    buying[1] = 3;
-    buying[2] = 1;
-    buying[4] = 4;
+    buyList[0] = 2;
+    buyList[1] = 3;
+    buyList[2] = 1;
+    buyList[4] = 4;
 
     // Deduct from Inventory
     items[0].nikeShoesQty -= 2;
     items[0].armourQty -= 3;
     items[0].brooksQty -= 1;
     items[0].nikeShortsQty -= 4;
-
-    // Display current inventory after purchase
-    printInventory();
-    pause();
 }

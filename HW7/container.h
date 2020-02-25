@@ -20,7 +20,7 @@ class container {
         
     private:
         item *items;
-        int *buying;
+        int *buyList;
         float tax = 0.0825;
         static float total;
     
