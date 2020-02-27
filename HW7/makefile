@@ -11,7 +11,7 @@ HDR2 = container.h
 CPP2 = container.cpp
 
 ##The list of all project files
-PROJFILES = makefile $(ASSIGNMENT).cpp $(HDR1) $(HDR2) $(CPP2)
+PROJFILES = makefile $(ASSIGNMENT).cpp $(ASSIGNMENT).scr $(HDR1) $(HDR2) $(CPP2)
 
 ##Definition for function "all"
 all: $(ASSIGNMENT)

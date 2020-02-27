@@ -9,6 +9,7 @@ namespace manager
     class container {
 
         public:
+            void setupDatabase();
             void printReceipt();
             void printInventory();
             void makePurchase();

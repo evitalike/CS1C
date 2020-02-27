@@ -1,0 +1,59 @@
+Script started on Mon Feb 24 22:00:36 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ date
+Mon Feb 24 22:00:39 PST 2020
+bash-3.2$ ls -l
+total 56
+-rw-rw-r--@ 1 ogg_  staff  2735 Feb 24 21:55 container.cpp
+-rw-rw-r--@ 1 ogg_  staff   525 Feb 24 21:47 container.h
+drwxr-xr-x  3 ogg_  staff    96 Feb 24 12:12 dist
+-rw-rw-r--@ 1 ogg_  staff   788 Feb 24 21:54 hw7.cpp
+drwxr-xr-x@ 3 ogg_  staff    96 Feb 24 12:26 hw7.dSYM
+-rw-r--r--  1 ogg_  staff    43 Feb 24 22:00 hw7.scr
+-rw-rw-r--@ 1 ogg_  staff   123 Feb 24 21:42 imports.h
+-rw-rw-r--@ 1 ogg_  staff   321 Feb 24 21:37 item.h
+-rw-rw-r--@ 1 ogg_  staff   902 Feb 24 12:22 makefile
+bash-3.2$ mae[Kke all
+g++ -std=c++14 -Wall -g -c container.cpp -o container.o
+g++ -std=c++14 -Wall -g hw7.cpp -o hw7 container.o
+bash-3.2$ ./hw7
+[H[2J	>> Inventory in Stock << 
+Nike Shoes > 22
+Under Armour Tee > 33
+Brooks Shoes > 11
+Asics Shoes > 20
+Nike Shorts > 77
+
+
+Purchases executed.
+
+	>> Purchase Receipt <<
+Nike Shoes (2) > $291.98
+Under Armour Tee (3) > $89.97
+Brooks Shoes (1) > $111.44
+Asics Shoes (0) > $0.00
+Nike Shorts (4) > $183.08
+
+Subtotal > $676.47
+Tax (8.25%) > $55.81
+
+Total > $732.28
+
+Press any key to proceed to show remaining inventory...
+
+
+[H[2J	>> Inventory in Stock << 
+Nike Shoes > 20
+Under Armour Tee > 30
+Brooks Shoes > 10
+Asics Shoes > 20
+Nike Shorts > 73
+
+
+[H[2Jbash-3.2$ exit
+exit
+
+Script done on Mon Feb 24 22:00:52 2020
