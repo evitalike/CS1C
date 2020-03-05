@@ -10,7 +10,7 @@ namespace manager
     //Constructors
     container::container()
     {
-        items = new item[5];
+        items = new item[5]; //  A !B !C D
         buyList = new int[5];
 
         setupDatabase();
