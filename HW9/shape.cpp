@@ -3,34 +3,22 @@
 
 shape::shape() 
 {
-    l = 0;
-    w = 0;
+    x = 0;
+    y = 0;
 }
 
-shape::shape(double l1, double w1)
+shape::shape(double x1, double y1)
 {
-    l = l1;
-    w = w1;
+    x = x1;
+    y = y1;
 }
 
-double shape::calcPerimeter()
-{
-    //If calculating a rectangle
-    if (w != 0) 
-    {
-        return ((l*2) + (w*2));
-    } else { // if calculating a triangle
-        return (l*3);
-    }
+void shape::print() {
+    cout << "Origin: (" << x << ", " << y << ")" << endl;
 }
 
-double shape::calcArea() 
+void shape::move(int x1, int y1)  
 {
-    //If calculating a rectangle
-    if (w != 0) 
-    {  
-        return (l*w);
-    } else { // if calculating a triangle
-        return ((sqrt(3)/4) * (l*l));
-    } 
+    x += x1;
+    y += y1;
 }

@@ -1,29 +1,28 @@
-#ifndef triangle_H
-#define triangle_H
+#ifndef circle_H
+#define circle_H
 
 #include "imports.h"
 #include "shape.h"
 
-class triangle: public shape 
+class circle: public shape
 {
     public:
         using shape::calcPerimeter;
         using shape::calcArea;
         using shape::updateDimensions;
 
-
-        triangle() : shape() { }
-        triangle(double l1) : shape() { l = l1; }
+        circle() { }
+        circle(double r1) { r = r1; }
 
         double calcPerimeter() override;
         double calcArea() override;
 
+        void print();
         void updateDimensions(double);
 
-        void print();
+    private:
+        double r;
 
-    private: 
-        double l;
 };
 
 #endif
