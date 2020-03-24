@@ -1,0 +1,71 @@
+Script started on Sun Mar  8 13:41:11 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ l[Kdate
+Sun Mar  8 13:41:17 PDT 2020
+bash-3.2$ ls -l
+total 96
+-rw-r--r--  1 ogg_  staff   301 Mar  5 20:08 circle.cpp
+-rw-r--r--  1 ogg_  staff   466 Mar  5 20:08 circle.h
+-rw-r--r--  1 ogg_  staff  2105 Mar  5 20:21 hw9.cpp
+drwxr-xr-x@ 3 ogg_  staff    96 Mar  4 18:24 hw9.dSYM
+-rw-r--r--  1 ogg_  staff    43 Mar  8 13:41 hw9.scr
+-rw-rw-r--@ 1 ogg_  staff   140 Mar  5 19:51 imports.h
+-rw-rw-r--@ 1 ogg_  staff  1354 Mar  5 19:04 makefile
+-rw-r--r--  1 ogg_  staff   371 Mar  5 20:05 rectangle.cpp
+-rw-r--r--  1 ogg_  staff   531 Mar  5 19:59 rectangle.h
+-rw-r--r--  1 ogg_  staff   295 Mar  5 20:19 shape.cpp
+-rw-r--r--  1 ogg_  staff   374 Mar  5 20:03 shape.h
+-rw-r--r--  1 ogg_  staff   317 Mar  5 20:05 triangle.cpp
+-rw-r--r--  1 ogg_  staff   499 Mar  5 19:59 triangle.h
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g -c shape.cpp -o shape.o
+g++ -std=c++14 -Wall -g -c triangle.cpp -o triangle.o
+g++ -std=c++14 -Wall -g -c rectangle.cpp -o rectangle.o
+g++ -std=c++14 -Wall -g -c circle.cpp -o circle.o
+g++ -std=c++14 -Wall -g hw9.cpp -o hw9 shape.o triangle.o rectangle.o circle.o
+bash-3.2$ ./hw9
+[H[2J > > > Rectangle Input < < <
+Enter Length > 5
+Enter Width > 4
+
+ > > > Triangle Input < < <
+Enter Length > 5
+
+ > > > Circle Input < < <
+Enter Radius > 3
+[H[2J > > > Rectangle Input < < <
+Enter Amount to move in x > 3
+Enter Amount to move in y > 3
+
+ > > > Triangle Input < < <
+Enter Amount to move in x > 4
+Enter Amount to move in y > 4
+
+ > > > Circle Input < < <
+Enter Amount to move in x > 5
+Enter Amount to move in y > 5
+[H[2J > > > Rectangle Info < < <
+Perimeter > 18
+Area > 20
+Origin: (3, 3)
+Length > 5
+Width > 4
+
+ > > > Triangle Info < < <
+Perimeter > 15
+Area > 10.8253
+Origin: (4, 4)
+Side Length > 5
+
+ > > > Circle Info < < <
+Perimeter > 18.84
+Area > 28.26
+Origin: (5, 5)
+Radius > 3
+bash-3.2$ exit
+exit
+
+Script done on Sun Mar  8 13:41:43 2020
