@@ -101,8 +101,8 @@ vector& vector::operator=(vector& rhs) // copy assignment
 {
     double* pD = new double(rhs.vsize); // allocate new space for double[]
     std::copy(rhs.elem, rhs.elem + rhs.vsize, pD); // use std::copy algorithm to copy rhs elements into pD double[]
-    delete rhs;                              // deallocate old space
-    delete [] elem;                          // now that we've copied new, deallocated old elems, reset elem pointer
+    delete [] elem;                              // deallocate old space
+    elem = pD;                       // now that we've copied new, deallocated old elems, reset elem pointer
     rhs.vsize = 0;                              // reset vector size
     return *this;                       // return a self-reference
 }
@@ -112,7 +112,7 @@ vector& vector::operator=(vector& rhs) // copy assignment
 vector& vector::operator=(vector&& rhs) // move assignment
 	// move rhs (i.e. source) to this vector
 {
-	delete rhs; // Why? Dont we need it to copy next...     // deallocate old space
+	delete [] elem; // Why? Dont we need it to copy next...     // deallocate old space
 	copy(rhs); // copy rhs’s elements and size, move implies copying element pointer only
 	// ... 
     delete [] rhs.elem;        // empty the rhs vector
@@ -172,7 +172,10 @@ int main()
     v.set(1,100.5);     // set v[1] to 100.5
 
     vector v2 = v;      // [1.1] copy v to v2: what happens here?
-                        // A: Copies all of the v contents and puts it into v2 through assignment operator (overloaded)
+                        // Old answer: Copies all of the v contents and puts it into v2 through assignment operator (overloaded)
+                        //      New Answer: It actually doesn't copy anything over since v2 doesn't 
+                        //      have a size defined so nothing is copied over or set since vsize is 0.
+
     v2.set(0,25);       // set v2[0] to 25
     
     cout << "v  double values: ";
