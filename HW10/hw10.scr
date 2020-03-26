@@ -1,0 +1,46 @@
+Script started on Wed Mar 25 01:00:24 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ date
+Wed Mar 25 01:00:25 PDT 2020
+bash-3.2$ ls -l
+total 32
+-rw-r--r--@ 1 ogg_  staff  7865 Mar 24 00:03 hw10.cpp
+drwxr-xr-x@ 3 ogg_  staff    96 Mar 24 00:00 hw10.dSYM
+-rw-r--r--  1 ogg_  staff    43 Mar 25 01:00 hw10.scr
+-rw-rw-r--@ 1 ogg_  staff   738 Mar 23 18:20 makefile
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw10.cpp -o hw10 
+[1mhw10.cpp:208:8: [0m[0;1;35mwarning: [0m[1mexplicitly assigning value of variable of type 'hw10::vector' to
+      itself [-Wself-assign-overloaded][0m
+    v5 = v5;            // [2.2] self assignment: what happens here, any problems?
+[0;1;32m    ~~ ^ ~~
+[0m1 warning generated.
+bash-3.2$ ./hw10
+
+************************************** 
+*           Running HW10             * 
+*      Programmed by Kevin Nguyen    * 
+*      CS1C 3/19/20                  * 
+************************************** 
+
+v  double values: 0 100.5 0 
+v2 double values (after copy, set): 
+
+v3 double values: 0 0 3.3 
+v4 double values: 0 0 4.4 0 
+v3 double values (after assignment): 0 0 4.4 
+
+fill up v6 with five doubles
+1
+2
+3
+4
+5
+v6 double values: 1 2 3 4 5 
+bash-3.2$ exit
+exit
+
+Script done on Wed Mar 25 01:00:35 2020

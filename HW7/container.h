@@ -20,7 +20,7 @@ namespace manager
 
             
         private:
-            item *items;
+            item *items[5];
             int *buyList;
             double tax = 0.0825;
             static double total;

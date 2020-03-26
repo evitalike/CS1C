@@ -1,37 +1,24 @@
-Script started on Thu Feb 27 14:32:25 2020
+Script started on Tue Mar 24 12:27:38 2020
 
 The default interactive shell is now zsh.
 To update your account to use zsh, please run `chsh -s /bin/zsh`.
 For more details, please visit https://support.apple.com/kb/HT208050.
-[?1034hbash-3.2$ date
-Thu Feb 27 14:32:29 PST 2020
+[?1034hbash-3.2$ ls -[K[K[K[Kdate
+Tue Mar 24 12:27:42 PDT 2020
 bash-3.2$ ls -l
 total 56
--rw-rw-r--@ 1 ogg_  staff  2855 Feb 27 14:30 container.cpp
--rw-rw-r--@ 1 ogg_  staff   559 Feb 27 14:20 container.h
+-rw-rw-r--@ 1 ogg_  staff  3005 Mar 24 12:27 container.cpp
+-rw-rw-r--@ 1 ogg_  staff   562 Mar 24 12:24 container.h
 drwxr-xr-x  3 ogg_  staff    96 Feb 24 12:12 dist
--rw-rw-r--@ 1 ogg_  staff   788 Feb 27 14:31 hw7.cpp
+-rw-rw-r--@ 1 ogg_  staff   788 Mar  5 20:17 hw7.cpp
 drwxr-xr-x@ 3 ogg_  staff    96 Feb 24 12:26 hw7.dSYM
--rw-r--r--  1 ogg_  staff    43 Feb 27 14:32 hw7.scr
+-rw-r--r--  1 ogg_  staff    43 Mar 24 12:27 hw7.scr
 -rw-rw-r--@ 1 ogg_  staff   123 Feb 24 21:42 imports.h
 -rw-rw-r--@ 1 ogg_  staff   442 Feb 27 14:24 item.h
 -rw-rw-r--@ 1 ogg_  staff   920 Feb 24 22:01 makefile
 bash-3.2$ make all
 g++ -std=c++14 -Wall -g -c container.cpp -o container.o
 g++ -std=c++14 -Wall -g hw7.cpp -o hw7 container.o
-bash-3.2$ ls -l
-total 384
--rw-rw-r--@ 1 ogg_  staff    2855 Feb 27 14:30 container.cpp
--rw-rw-r--@ 1 ogg_  staff     559 Feb 27 14:20 container.h
--rw-r--r--  1 ogg_  staff  117008 Feb 27 14:32 container.o
-drwxr-xr-x  3 ogg_  staff      96 Feb 24 12:12 dist
--rwxr-xr-x  1 ogg_  staff   46244 Feb 27 14:32 hw7
--rw-rw-r--@ 1 ogg_  staff     788 Feb 27 14:31 hw7.cpp
-drwxr-xr-x@ 3 ogg_  staff      96 Feb 24 12:26 hw7.dSYM
--rw-r--r--  1 ogg_  staff      43 Feb 27 14:32 hw7.scr
--rw-rw-r--@ 1 ogg_  staff     123 Feb 24 21:42 imports.h
--rw-rw-r--@ 1 ogg_  staff     442 Feb 27 14:24 item.h
--rw-rw-r--@ 1 ogg_  staff     920 Feb 24 22:01 makefile
 bash-3.2$ ./hw7
 [H[2J	>> Inventory in Stock << 
 Nike Shoes > 22
@@ -41,7 +28,7 @@ Asics Shoes > 20
 Nike Shorts > 77
 
 
-Purchases executed.
+Purchases executed->
 
 	>> Purchase Receipt <<
 Nike Shoes (2) > $291.98
@@ -65,7 +52,10 @@ Asics Shoes > 20
 Nike Shorts > 73
 
 
-[H[2Jbash-3.2$ exit
+[H[2Jhw7(20392,0x113678dc0) malloc: *** error for object 0x7fc6aae00000: pointer being freed was not allocated
+hw7(20392,0x113678dc0) malloc: *** set a breakpoint in malloc_error_break to debug
+Abort trap: 6
+bash-3.2$ exit
 exit
 
-Script done on Thu Feb 27 14:32:41 2020
+Script done on Tue Mar 24 12:27:50 2020
