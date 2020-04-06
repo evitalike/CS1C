@@ -1,0 +1,51 @@
+Script started on Mon Mar 30 20:06:24 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ make[K[K[K[Kdate
+Mon Mar 30 20:06:27 PDT 2020
+bash-3.2$ ls -l
+total 112
+-rwxr-xr-x  1 ogg_  staff  33372 Mar 30 20:04 hw11
+-rw-r--r--@ 1 ogg_  staff   9414 Mar 30 20:05 hw11.cpp
+drwxr-xr-x@ 3 ogg_  staff     96 Mar 30 20:00 hw11.dSYM
+-rw-r--r--  1 ogg_  staff     43 Mar 30 20:06 hw11.scr
+-rw-rw-r--@ 1 ogg_  staff    738 Mar 30 20:03 makefile
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw11.cpp -o hw11 
+[1mhw11.cpp:246:15: [0m[0;1;35mwarning: [0m[1munused variable 'baseSlice' [-Wunused-variable][0m
+    BaseSlice baseSlice = dSlice; // instantiate base class object and assign to d...
+[0;1;32m              ^
+[0m[1mhw11.cpp:204:14: [0m[0;1;35mwarning: [0m[1munused variable 'fcnPtr1' [-Wunused-variable][0m
+    string (*fcnPtr1) () { foo };
+[0;1;32m             ^
+[0m[1mhw11.cpp:171:8: [0m[0;1;35mwarning: [0m[1mprivate field 'base_id' is not used [-Wunused-private-field][0m
+   int base_id;
+[0;1;32m       ^
+[0m[1mhw11.cpp:178:8: [0m[0;1;35mwarning: [0m[1mprivate field 'derived_id' is not used [-Wunused-private-field][0m
+   int derived_id;
+[0;1;32m       ^
+[0m4 warnings generated.
+bash-3.2$ ls -l
+total 112
+-rwxr-xr-x  1 ogg_  staff  33372 Mar 30 20:06 hw11
+-rw-r--r--@ 1 ogg_  staff   9414 Mar 30 20:05 hw11.cpp
+drwxr-xr-x@ 3 ogg_  staff     96 Mar 30 20:00 hw11.dSYM
+-rw-r--r--  1 ogg_  staff     43 Mar 30 20:06 hw11.scr
+-rw-rw-r--@ 1 ogg_  staff    738 Mar 30 20:03 makefile
+bash-3.2$ ./hw11
+
+************************************** 
+*           Running HW11             * 
+*      Programmed by Kevin Nguyen    * 
+*           CS1C 3/30/20             * 
+************************************** 
+
+9 8 7 6 5 4 3 2 1 
+1 2 3 4 5 6 7 8 9 
+7 8 9 4 5 6 1 2 3 
+bash-3.2$ exit
+exit
+
+Script done on Mon Mar 30 20:06:38 2020

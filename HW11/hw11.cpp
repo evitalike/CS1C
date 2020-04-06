@@ -58,8 +58,10 @@ double goo(int x, double y)
 
 // (footnote 1)
 
+bool (*compare)(int, int);
+
 // Note our user-defined comparison is the third parameter
-void selectionSort(int *array, int size, char input) // ???
+void selectionSort(int *array, int size, bool (*compare)(int, int)) // ???
 {
     // Step through each element of the array
     for (int startIndex = 0; startIndex < size; ++startIndex)
@@ -71,16 +73,9 @@ void selectionSort(int *array, int size, char input) // ???
         for (int currentIndex = startIndex + 1; currentIndex < size; ++currentIndex)
         {
             // If the current element is smaller/larger than our previously found smallest
-            if (input == 'a') {
-                if (array[currentIndex] < array[bestIndex]) // COMPARISON DONE HERE !! Done?
-                // This is the new smallest/largest number for this iteration
-                bestIndex = currentIndex;
-            }
-            if (input == 'd') {
-                if (array[currentIndex] > array[bestIndex]) // COMPARISON DONE HERE !! Done?
-                // This is the new smallest/largest number for this iteration
-                bestIndex = currentIndex;
-            }
+            if (compare(array[bestIndex], array[currentIndex])) // COMPARISON DONE HERE !!
+            // This is the new smallest/largest number for this iteration
+            bestIndex = currentIndex;
         }
  
         // Swap our start element with our smallest/largest element
@@ -92,17 +87,17 @@ void selectionSort(int *array, int size, char input) // ???
  
 // Here is a comparison function that sorts in ascending order
 // (Note: it's exactly the same as the previous ascending() function)
-void ascending(int *x, int y)
+bool ascending(int x, int y)
 {
-    selectionSort(x, y, 'a');
+    return x > y;
 }
 
 //------------------------------------------------------------------------------
  
 // Here is a comparison function that sorts in descending order
-void descending(int *x, int y)
+bool descending(int x, int y)
 {
-    selectionSort(x, y, 'd');
+    return x < y;
 }
 
 //------------------------------------------------------------------------------
@@ -110,21 +105,13 @@ void descending(int *x, int y)
 // custom comparison function, explain how your function sorts array components
 
 /*  EXPLANATION: 
-        A bubble sort will compare two elements at a time (e.g. 0 and 1)
-        then swap them if the first one is greater than the first one (ascending order)
-        then compare the two after the first (1 and 2) and repeat until the end of the
-        array, then go through the list again. It repeats this process for the 
-        amount of elements in the array.
+        Sorts based on whether or not x is bigger by 2 over ascending function. 
+        Should it be set to 1, it would be ascending. Or -1, for descending.
 
 */
-void bubbleSort(int *array, int size) 
+bool custom_sort(int x, int y)
 {
-    int i, j;  
-    for (i = 0; i < size - 1; i++)      
-      
-    for (j = 0; j < size - i - 1; j++)  
-        if (array[j] > array[j+1])  
-            std::swap(&array[j], &array[j+1]);  
+    return (x+2) < y; 
 }
 
 //------------------------------------------------------------------------------
@@ -205,8 +192,8 @@ int main()
 	cout << endl;
 	cout << "************************************** " << endl;
 	cout << "*           Running HW11             * " << endl;
-	cout << "*      Programmed by First Last      * " << endl;
-	cout << "*      CS1C Date & Time              * " << endl;
+	cout << "*      Programmed by Kevin Nguyen    * " << endl;
+	cout << "*           CS1C 3/30/20             * " << endl;
 	cout << "************************************** " << endl;
 	cout << endl;
 
@@ -214,37 +201,37 @@ int main()
 
     // function pointer assignments
     // ... // [1.1] declare and init function pointer fcnPtr1 to point to function foo
-    string *fcnPtr1->foo();
+    string (*fcnPtr1) () { foo };
     // ... // [1.2] declare and init function pointer fcnPtr2 to point to function hoo
-    int *fcnPtr2->hoo();
+    int (*fcnPtr2) (int) { hoo } ;
     // ... // [1.3] declare and init function pointer fcnPtr3 to point to function goo
-    double *fcnPtr3->goo();
+    double (*fcnPtr3) (int, double) { goo };
     // ... // [1.4] assign fcnPtr1 to point to boo
-    *fcnPtr1 = boo();
+    // fcnPtr1 = boo; ERROR: Type mismatch
     // ... // [1.5] assign fcnPtr2 to point to boo, okay - function pointer signature matches function boo
-    fcnPtr2 = boo();
+    fcnPtr2 = boo;
     // calling a function using a function pointer via explicit dereference
     // ... // [1.6] call function goo(2,5.0) through fcnPtr3 via explicit dereference
-    *fcnPtr3 = goo(2, 5.0);
+    (*fcnPtr3)(2, 5.0);
 
     // calling a function using a function pointer via implicit dereference
     // ... // [1.7] call function goo(2,5.0) through fcnPtr3 implicit dereference
-    &fcnPtr3 = goo(2, 5.0);
+    fcnPtr3(2, 5.0);
 
 	// Q#2 - function pointers - calling user defined comparison functions in algorithms
 
     int array[9] = { 3, 7, 9, 5, 6, 1, 8, 2, 4 };
 
     // TEMP - COMPLETE FUNCTION CALL AND UNCOMMENT LINE BELOW
-    selectionSort(array, 9, 'd'); // [2.1] sort array in descending order
+    selectionSort(array, 9, descending); // [2.1] sort array in descending order
     printArray(array, 9);
  
     // TEMP - COMPLETE FUNCTION CALL AND UNCOMMENT LINE BELOW
-    selectionSort(array, 9, 'a'); // [2.2] sort array in ascending order
+    selectionSort(array, 9, ascending); // [2.2] sort array in ascending order
     printArray(array, 9);
  
     // TEMP - COMPLETE FUNCTION CALL AND UNCOMMENT LINE BELOW
-    selectionSort(array, 9); // [2.3] sort array via custom_sort algorithm
+    selectionSort(array, 9, custom_sort); // [2.3] sort array via custom_sort algorithm
     printArray(array, 9);
 
 	// Q#3,4 - virtual function tables & calls
@@ -275,28 +262,39 @@ int main()
 /**************************************************/
 
 /******* D1 Class Virtual Function Table **********/
-/* virtual function1() -> ...FILL IN MISSING CALL */
-/* virtual function2() -> ...FILL IN MISSING CALL */
+/* virtual function1() -> calls Base::function1() */
+/* virtual function2() -> calls D1::function2()   */
 /**************************************************/
 
 /******* D2 Class Virtual Function Table **********/
-/* virtual function1() -> ...FILL IN MISSING CALL */
-/* virtual function2() -> ...FILL IN MISSING CALL */
-/* virtual function3() -> ...FILL IN MISSING CALL */
+/* virtual function1() -> calls D2::function1()   */
+/* virtual function2() -> calls Base::function2() */
+/* virtual function3() -> calls D2::function3()   */
 /**************************************************/
 
 /******* D3 Class Virtual Function Table **********/
-/* virtual function1() -> ...FILL IN MISSING CALL */
-/* virtual function2() -> ...FILL IN MISSING CALL */
-/* virtual function3() -> ...FILL IN MISSING CALL */
+/* virtual function1() -> calls D2::function1()   */
+/* virtual function2() -> calls D3::function2()   */
+/* virtual function3() -> calls D2::function3()   */
 /**************************************************/
 
 // (footnote 1 - source) adapted from learncpp.com - Alex - 12.5 the virtual table
 
 // Q#4
 
-// add written answers here
+// First, the program recognizes that function1() is a virtual function. 
+// Second, the program uses dPtr->__vptr to get to D1’s virtual table. 
+// Third, it looks up which version of function1() to call in D1’s virtual table.
+//  This has been set to D1::function1(). Therefore, dPtr->function1() resolves to D1::function1()!
+
+// -- Cited from "https://www.learncpp.com/cpp-tutorial/125-the-virtual-table/"
+
+// Using this explanation, virtual tables become really clear to use, however, slows the overall
+// performance of the program. 
 
 // Q#5
 
-// add written answers here
+// Once you upcast it, there is no virtual functions or variables that you can use because the __vptr
+// points to the DerivedSlice, but contains no functions or vars that are also in base.
+// Therefore, it would only beable to call the functions & vars inside of the DerivedSlice but not the
+// Base Slice. Due the the fact that it is not virtual and commonly shared between the classes. 
