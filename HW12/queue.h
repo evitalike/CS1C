@@ -18,7 +18,7 @@ public:
     void initialize();
     Type front();
     Type back();
-    void enqueue(Type &queueElement);
+    void enqueue(const Type &queueElement);
     void dequeue();
     void print();
 
@@ -73,7 +73,7 @@ Type queue<Type>::back()
 }
 
 template <class Type>
-void queue<Type>::enqueue(Type &newElement)
+void queue<Type>::enqueue(const Type &newElement)
 {
     if (!isFull())
     {
@@ -105,9 +105,10 @@ template <class Type>
 void queue<Type>::print()
 {
     queue<Type> temp(*this);
+    cout << "       ";
     while (!temp.isEmpty())
     {
-        cout << temp.front() << " ";
+        cout << temp.front() << "  ";
         temp.dequeue();
     }
     cout << endl;
