@@ -1,8 +1,6 @@
 #include "queue.h"
 
-//void q1Test(queue<class Type> q1) {
-    
-//}
+// Created by Kevin Nguyen on 4/2/20
 
 int main() {
     queue<int> q1;
