@@ -1,0 +1,31 @@
+Script started on Mon Apr  6 18:40:51 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ date
+Mon Apr  6 18:40:54 PDT 2020
+bash-3.2$ ls -l
+total 32
+-rw-r--r--  1 ogg_  staff   570 Apr  6 17:08 hw13.cpp
+drwxr-xr-x@ 3 ogg_  staff    96 Apr  6 17:09 hw13.dSYM
+-rw-r--r--  1 ogg_  staff    43 Apr  6 18:40 hw13.scr
+-rw-rw-r--@ 1 ogg_  staff   798 Apr  6 17:08 makefile
+-rw-r--r--  1 ogg_  staff  2780 Apr  6 17:09 queue.h
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw13.cpp -o hw13
+bash-3.2$ ./hw12[K3
+[H[2J-=-= Q1 =-=-
+
+ > Initializing with capacity of 3...
+ > Attempting to dequeue [1]...
+Error: Cannot remove, queue is empty (0/3).
+ > Queuing [3] numbers...
+ > Printing numbers...
+       2  42  123  
+ > Queuing [1] numbers...
+Error: Cannot add, queue is full (3/3).
+bash-3.2$ exit
+exit
+
+Script done on Mon Apr  6 18:41:04 2020
