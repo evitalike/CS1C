@@ -35,7 +35,7 @@ public:
     void insert(const Type &insertItem);
     void deleteNode(const Type &deleteItem);
 
-    void reverseCopy(const doublyLinkedList<Type> &);
+    void reverseSelf();
 
     doublyLinkedList();
     doublyLinkedList(const doublyLinkedList<Type> &);
@@ -51,60 +51,51 @@ private:
 };
 
 template <class Type>
-void doublyLinkedList<Type>::reverseCopy(const doublyLinkedList<Type> &otherList) 
+void doublyLinkedList<Type>::reverseSelf() 
 {
-    if (this != &otherList)
-    {
-        node<Type> *newNode;
-        node<Type> *current;
 
-        if (first != nullptr)
-        {
-            node<Type> *temp;
+    /*
+    node<Type> *temp = NULL;  
+    node<Type> *current = first;  
+    
+    while (current != NULL)  
+    {  
+        node<Type> *oof = last;  
+        cout << "Swapping " << current->info << " and " << oof->info << endl;
+        temp = current->back;
+        current->back = current->next;
+        //current->next = prev;
+        current->next = temp;
+        //temp = current;
 
-            while (first != nullptr)
-            {
-                temp = first;
-                first = first->next;
-                delete temp;
-            }
-            last = nullptr;
-            count = 0;
-        }
+        current = current->back;
+    }  
+      
+    if(temp != NULL )  
+        first = temp->back;  
 
-        if (otherList.first == nullptr)
-        {
-            first = nullptr;
-            last = nullptr;
-            count = 0;
-        }
-        else
-        {
-            current = otherList.last;
-            count = otherList.count;
+        */
 
-            first = new node<Type>;
-            first->info = current->info;
-            //this might break idk
-            first->back = nullptr;
 
-            last = first;
+    node<Type> *left = first; 
+    node<Type> *right = last; 
+  
 
-            current = current->next;
+    cout << "Before last is " << last->back->info << endl;
 
-            while (current != nullptr)
-            {
-                newNode = new node<Type>;
-                newNode->info = current->info;
-                newNode->next = nullptr;
-
-                last->next = newNode;
-                last = newNode;
-
-                current = current->next;
-            }
-        }
-    }
+    while (left != right && left->back != right) { 
+        cout << "Swapping " << left->info << " and " << right->info << endl;
+        // Swap data of left and right pointer 
+        swap(left->info, right->info); 
+  
+        // Advance left pointer 
+        left = left->next; 
+        cout << "Left is now " << left->info << endl;
+  
+        // Advance right pointer 
+        right = right->back; 
+        cout << "Right is now " << right->info << endl;
+    } 
 }
 
 template <class Type>

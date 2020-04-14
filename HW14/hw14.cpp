@@ -10,7 +10,6 @@ int main() {
 
     //Initialize
     list1.initializeList();
-    list1b.initializeList();
 
     //Begin Insertion of 5 items
     list1.insert(5);
@@ -19,7 +18,7 @@ int main() {
     list1.insert(4213);
     list1.insert(2);
 
-    cout << "LIST 1 - INTEGER"
+    cout << "LIST 1 - INTEGER" << endl;
 
     //Print the list
     cout << "\t-= Part 1 =-\n" << endl;
@@ -30,7 +29,7 @@ int main() {
     cout << "Assignment Copy: ";
     list1.print();
 
-    list1 = new doublyLinkedList<int>(list1); // ??? Is this how you do it wtf?
+    //list1 = new doublyLinkedList<int>(list1); // ??? Is this how you do it wtf?
     cout << "Constructor Copy: ";
     list1.print();
 
@@ -38,14 +37,18 @@ int main() {
 
     doublyLinkedList<int> list1b;
 
-    list1b.reverseCopy(list11);
+    list1b = list1;
+    cout << "Regular Copy of List1: ";
+    list1b.print();
+    cout << "Reverse Copy of List1: ";
+    list1b.reverseSelf();
     list1b.print();
 
     cout << "\t-= Part 4 =-\n" << endl;
 
-    cout << "Testing deleting empty list from list 1d..." << endl;
+    cout << "Testing deleting empty list from list 1c..." << endl;
     doublyLinkedList<int> list1c;
-    list1d.deleteNode(5); // Should say the list is empty.
+    list1c.deleteNode(5); // Should say the list is empty.
 
     cout << "Testing deleting non-existant node from 1..." << endl;
     list1.deleteNode(999); // Should throw error, node not found to delete
@@ -56,8 +59,8 @@ int main() {
     list1.print();
     list1b.print();
 
-    list1.insertAt(999, 2); // Should Insert node 999 in slot 2 (third slot) ??? function doesnt exist yet??
-    list1b.insertAt(999, 2); // Should Insert node 999 in slot 2 (third slot) ??? function doesnt exist yet??
+    //list1.insertAt(999, 2); // Should Insert node 999 in slot 2 (third slot) ??? function doesnt exist yet??
+    //list1b.insertAt(999, 2); // Should Insert node 999 in slot 2 (third slot) ??? function doesnt exist yet??
 
 
     /////////// DO ALL OF IT AGAIN BUT WITH DOUBLES.

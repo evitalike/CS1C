@@ -1,11 +1,11 @@
 ##Set flags and gcc variable for easier reading
-ASSIGNMENT = hw13
+ASSIGNMENT = hw14
 CC = g++
 FLAGS = -std=c++14 -Wall -g
 
 ##These are the objects created
 
-HDR_1 = queue.h
+HDR_1 = doublyLinkedList.h
 
 
 ##The list of all project files
