@@ -11,7 +11,7 @@ struct node
 {
     Type info;
     node<Type> *next;
-    node<Type> *back;
+    node<Type> *prev;
 };
 
 template <class Type>
@@ -25,14 +25,15 @@ public:
     void destroy();
 
     void print() const;
-    void reversePrint() const;
 
     int length() const;
     Type front() const;
-    Type back() const;
+    Type prev() const;
 
     bool search(const Type &searchItem) const;
+    void insertLast(const Type &insertItem);
     void insert(const Type &insertItem);
+    void insertMiddle(const Type &insertItem);
     void deleteNode(const Type &deleteItem);
 
     void reverseSelf();
@@ -62,42 +63,56 @@ void doublyLinkedList<Type>::reverseSelf()
     {  
         node<Type> *oof = last;  
         cout << "Swapping " << current->info << " and " << oof->info << endl;
-        temp = current->back;
-        current->back = current->next;
+        temp = current->prev;
+        current->prev = current->next;
         //current->next = prev;
         current->next = temp;
         //temp = current;
 
-        current = current->back;
+        current = current->prev;
     }  
       
     if(temp != NULL )  
-        first = temp->back;  
+        first = temp->prev;  
 
         */
-
 
     node<Type> *left = first; 
     node<Type> *right = last; 
   
-
-    cout << "Before last is " << last->back->info << endl;
-
-    while (left != right && left->back != right) { 
-        cout << "Swapping " << left->info << " and " << right->info << endl;
+    while (left != right && left->prev != right) { 
         // Swap data of left and right pointer 
         swap(left->info, right->info); 
   
         // Advance left pointer 
         left = left->next; 
-        cout << "Left is now " << left->info << endl;
   
         // Advance right pointer 
-        right = right->back; 
-        cout << "Right is now " << right->info << endl;
+        right = right->prev; 
     } 
 }
 
+template <class Type>
+const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLinkedList<Type> &otherList)
+{
+    node<Type> *current;
+
+    first = nullptr;
+    last = nullptr;
+
+    count = otherList.count;
+
+    current = otherList.first;
+
+    while(current != nullptr)
+    {
+        insertLast(current->info);
+        current = current->next;
+    }
+
+return *this;
+}
+/*
 template <class Type>
 const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLinkedList<Type> &otherList)
 {
@@ -154,7 +169,7 @@ const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLink
         }
     }
     return *this;
-}
+}*/
 
 template <class Type>
 doublyLinkedList<Type>::~doublyLinkedList()
@@ -276,26 +291,11 @@ void doublyLinkedList<Type>::print() const
     current = first;
 
     while (current != nullptr)
-    {
+    {  
         cout << current->info << "  ";
         current = current->next;
     }
-    std::cout << std::endl;
-}
-
-template <class Type>
-void doublyLinkedList<Type>::reversePrint() const
-{
-    node<Type> *current;
-
-    current = last;
-
-    while (current != nullptr)
-    {
-        cout << current->info << " ";
-        current = current->back;
-    }
-    std::cout << std::endl;
+    cout << endl;
 }
 
 template <class Type>
@@ -328,11 +328,80 @@ Type doublyLinkedList<Type>::front() const
 }
 
 template <class Type>
-Type doublyLinkedList<Type>::back() const
+Type doublyLinkedList<Type>::prev() const
 {
     assert(last != nullptr);
 
     return last->info;
+}
+
+template <class Type>
+void doublyLinkedList<Type>::insertMiddle(const Type &insertItem)
+{
+    node<Type> *temp = nullptr;
+    node<Type> *current = first; // Test to insert after the first node
+    node<Type> *newNode = (node<Type>*)malloc(sizeof(node<Type>));
+    newNode->info = insertItem;
+    
+    int mid = (count % 2 == 0) ? (count/2) : ((count+1)/2);      
+          
+    //Iterate through list till current points to mid position  
+    for(int i = 1; i < mid; i++){  
+        current = current->next;  
+    }
+
+    temp = current->next;
+
+    temp->prev = newNode;
+
+    current->next = newNode;
+
+    newNode->prev = current;
+
+    newNode->next = temp;
+
+    temp->prev = newNode;
+}
+
+template <class Type>
+void doublyLinkedList<Type>::insertLast(const Type &insertItem)
+{
+    /* 1. allocate node */
+    node<Type> *newNode = (node<Type>*)malloc(sizeof(node<Type>)); 
+  
+    /* 2. put in the data  */
+    newNode->info = insertItem; 
+  
+    /* 3. This new node is going to be the last node, so 
+          make next of it as NULL*/
+    newNode->next = nullptr; 
+  
+    /* 4. If the Linked List is empty, then make the new 
+          node as head */
+    if (first == NULL) { 
+        newNode->prev = NULL; 
+        first = newNode; 
+        last = newNode;
+        count++;
+        return; 
+    } 
+  
+    /* 5. Else traverse till the last node */
+    //while (finalNode->next != NULL) 
+    //    finalNode = finalNode->next; 
+  
+    /* 6. Change the next of last node */
+    last->next = newNode; 
+    //cout << last->info << " -> " << newNode->info << endl;
+  
+    /* 7. Make last node as previous of new node */
+    newNode->prev = last; 
+    //cout << last->info << " <- " << newNode->info << endl;
+
+    last = newNode;
+
+    count++;
+
 }
 
 template <class Type>
@@ -346,7 +415,7 @@ void doublyLinkedList<Type>::insert(const Type &insertItem)
     newNode = new node<Type>;
     newNode->info = insertItem;
     newNode->next = nullptr;
-    newNode->back = nullptr;
+    newNode->prev = nullptr;
 
     if (first == nullptr)
     {
@@ -367,7 +436,7 @@ void doublyLinkedList<Type>::insert(const Type &insertItem)
 
         if (current == first)
         {
-            first->back = newNode;
+            first->prev = newNode;
             newNode->next = first;
             first = newNode;
             count++;
@@ -377,14 +446,14 @@ void doublyLinkedList<Type>::insert(const Type &insertItem)
             if (current != nullptr)
             {
                 trailCurrent->next = newNode;
-                newNode->back = trailCurrent;
+                newNode->prev = trailCurrent;
                 newNode->next = current;
-                current->back = newNode;
+                current->prev = newNode;
             }
             else
             {
                 trailCurrent->next = newNode;
-                newNode->back = trailCurrent;
+                newNode->prev = trailCurrent;
                 last = newNode;
             }
 
@@ -410,7 +479,7 @@ void doublyLinkedList<Type>::deleteNode(const Type &deleteItem)
         first = first->next;
 
         if (first != nullptr)
-            first->back = nullptr;
+            first->prev = nullptr;
         else
             last = nullptr;
 
@@ -435,11 +504,11 @@ void doublyLinkedList<Type>::deleteNode(const Type &deleteItem)
         else if (current->info == deleteItem)
 
         {
-            trailCurrent = current->back;
+            trailCurrent = current->prev;
             trailCurrent->next = current->next;
 
             if (current->next != nullptr)
-                current->next->back = trailCurrent;
+                current->next->prev = trailCurrent;
 
             if (current == last)
                 last = trailCurrent;
