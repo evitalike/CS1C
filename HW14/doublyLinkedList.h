@@ -77,8 +77,25 @@ void doublyLinkedList<Type>::reverseSelf()
 
         */
 
+    node<Type> *middle = (node<Type>*)malloc(sizeof(node<Type>));
+    middle = first;
+    
+    int mid = (count % 2 == 0) ? (count/2) : ((count+1)/2);      
+          
+    //Iterate through list till current points to mid position  
+    for(int i = 1; i < mid; i++){  
+        middle = middle->next;  
+    }
+
     node<Type> *left = first; 
     node<Type> *right = last; 
+
+    bool isEven = false;
+
+    if (count % 2 == 0) {
+        isEven = true;
+    }
+
   
     while (left != right && left->prev != right) { 
         // Swap data of left and right pointer 
@@ -86,10 +103,21 @@ void doublyLinkedList<Type>::reverseSelf()
   
         // Advance left pointer 
         left = left->next; 
-  
+    
         // Advance right pointer 
         right = right->prev; 
+        
     } 
+
+    left = left->prev;
+    right = right->next;
+
+    if (!isEven) {
+        left->next = middle;
+        middle->next = right;
+        middle->prev = left;
+        right->prev = middle;
+    }
 }
 
 template <class Type>
@@ -100,7 +128,7 @@ const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLink
     first = nullptr;
     last = nullptr;
 
-    count = otherList.count;
+    //count = otherList.count;
 
     current = otherList.first;
 
@@ -110,7 +138,7 @@ const doublyLinkedList<Type> &doublyLinkedList<Type>::operator=(const doublyLink
         current = current->next;
     }
 
-return *this;
+    return *this;
 }
 /*
 template <class Type>
@@ -401,7 +429,6 @@ void doublyLinkedList<Type>::insertLast(const Type &insertItem)
     last = newNode;
 
     count++;
-
 }
 
 template <class Type>
@@ -492,29 +519,32 @@ void doublyLinkedList<Type>::deleteNode(const Type &deleteItem)
         found = false;
         current = first;
 
-        while (current != nullptr && !found)
-            if (current->info >= deleteItem)
+        while (current != nullptr && !found) {
+            if (current->info == deleteItem) {
                 found = true;
+            }
             else
                 current = current->next;
-
+        }
         if (current == nullptr)
-            cout << "The item to be deleted is not in "
-                 << "the list." << endl;
-        else if (current->info == deleteItem)
+            cout << "The item to be deleted was not found." << endl;
+        else if (found)
 
         {
-            trailCurrent = current->prev;
-            trailCurrent->next = current->next;
+            //current = current->next;
 
-            if (current->next != nullptr)
-                current->next->prev = trailCurrent;
+            if (current->info == deleteItem) {
+                trailCurrent = current->prev;
+                trailCurrent->next = current->next;
 
-            if (current == last)
-                last = trailCurrent;
+                if (current->next != nullptr)
+                    current->next->prev = trailCurrent;
 
-            count--;
-            delete current;
+                if (current == last)
+                    last = trailCurrent;
+                count--;
+                delete current; 
+            }
         }
         else
             cout << "The item to be deleted is not in list."
