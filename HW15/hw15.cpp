@@ -36,7 +36,11 @@ struct Link
     Link* prev;    // previous link
     Link* succ;    // successor (next) link
     Elem  val;     // the value
-    Link(const Elem& v = Elem(), Link* p = 0, Link* s = 0) : val{v}, prev{p}, succ{s} { }
+    Link(const Elem& v = Elem(), Link* p = 0, Link* s = 0) {
+        val = v;
+        prev = p;
+        succ = s;
+    }
 };
 
 //--Q#3-------------------------------------------------------------------------
@@ -113,36 +117,49 @@ public:
 
     bool operator==(const iterator& rhs) const // lhs, rhs iterators point to the same node (equal)
     {
-        /// ??? Is this correct
-        if (curr == rhs)
-            return true;
-        else
-            return false;
+        return (curr == rhs.curr);
     }
     bool operator!=(const iterator& rhs) const // lhs, rhs iterators do not point to the same node (not equal)
     {
-        /// ??? Is this correct
-        if (curr = rhs)
-            return true;
-        else
-            return false;
+        return (curr != rhs.curr);
     }
 };
 
 //--Q#4-------------------------------------------------------------------------
 
 template<typename Elem>
-class list<Elem>::const_iterator // definition for class const_iterator
+class list<Elem>::const_iterator // definition for class iterator
 {
-    const Link<Elem>* curr;   // current node
-                              // node pointed to by curr is immutable (i.e. can't be changed)
-                              // fine to modify curr pointer itself (i.e. pointer value stored in curr)
-                              // refer to const correctness reading
+    Link<Elem>* curr;   // current node
 public:
+    const_iterator(Link<Elem>* p) : curr{p} { }
+    const_iterator& operator++() // forward
+    {
+        if(curr) {
+            curr = curr->succ;
+        }
+        return *this; 
+    }
+    const_iterator& operator--() // backwards
+    {
+        if(curr) {
+            curr = curr->prev;
+        }
+        return *this; 
+    }
+    Elem& operator*() // get value (dereference)
+    {
+        return curr->val;
+    }
 
-    // add missing constructor, overloaded ++, --, *, ==, != operators here
-
-    // ...
+    bool operator==(const const_iterator& rhs) const // lhs, rhs iterators point to the same node (equal)
+    {
+        return (curr == rhs.curr);
+    }
+    bool operator!=(const const_iterator& rhs) const // lhs, rhs iterators do not point to the same node (not equal)
+    {
+        return (curr != rhs.curr);
+    }
 };
 
 //------------------------------------------------------------------------------
@@ -158,6 +175,11 @@ typename list<Elem>::iterator list<Elem>::begin()  // iterator to first element
 // constant iterator to first element
 
 // ... add missing constant iterator begin here
+template<typename Elem> 
+typename list<Elem>::iterator list<Elem>::begin() const  // iterator to first element
+{ 
+    return iterator(first); 
+}
 
 //------------------------------------------------------------------------------
 
@@ -172,6 +194,12 @@ typename list<Elem>::iterator list<Elem>::end() // iterator to one beyond last e
 // constant iterator to last element
 
 // ... add missing constant iterator end here
+template<typename Elem> 
+typename list<Elem>::iterator list<Elem>::end() const // iterator to one beyond last element
+{ 
+    return iteartor(last); 
+}
+
 
 //------------------------------------------------------------------------------
 
@@ -202,7 +230,14 @@ double* low_doubles(double* first, double* last)
 
 // implement templated low algorithm here
 
-// ...
+template<typename iterator>
+iterator low(iterator first, iterator last){
+    iterator low = first;
+    for(iterator p = first; p != last; ++p)
+        if (*p < *low)
+            low = p;
+    return low;
+}
 
 //------------------------------------------------------------------------------
 
@@ -224,8 +259,8 @@ int main()
 	cout << endl;
 	cout << "************************************** " << endl;
 	cout << "*           Running HW15             * " << endl;
-	cout << "*      Programmed by First Last      * " << endl;
-	cout << "*         CS1C Date & Time           * " << endl;
+	cout << "*      Programmed by Kevin Nguyen    * " << endl;
+	cout << "*               CS1C                 * " << endl;
 	cout << "************************************** " << endl;
 	cout << endl;
 
@@ -253,19 +288,19 @@ int main()
 
     // NOTE: uncomment code below once low algorithm definition is complete
 
-    // lowa = low(&d[0], &d[9]); // min of array
-    // cout << "low alg: double array min value is " << *lowa << endl << endl;
+     lowa = low(&d[0], &d[9]); // min of array
+     cout << "low alg: double array min value is " << *lowa << endl << endl;
 
-    // lowv1 = low(&v[0], middle);          // min of vector first half
-    // lowv2 = low(middle, &v[0]+v.size()); // min of vector second half
-    // cout << "low alg: double vector min value first half is " << *lowv1 << endl;
-    // cout << "low alg: double vector min value second half is " << *lowv2 << endl << endl;
+     lowv1 = low(&v[0], middle);          // min of vector first half
+     lowv2 = low(middle, &v[0]+v.size()); // min of vector second half
+     cout << "low alg: double vector min value first half is " << *lowv1 << endl;
+     cout << "low alg: double vector min value second half is " << *lowv2 << endl << endl;
 
-    // list<int>::iterator p = low(myList.begin(), myList.end()); // min of list
-    // if (p==myList.end())    // did we reach the end?
-    //     cout << "low alg: the list is empty";
-    // else
-    //     cout << "low alg: the lowest value in the list is " << *p << endl;
+     list<int>::iterator p = low(myList.begin(), myList.end()); // min of list
+     if (p==myList.end())    // did we reach the end?
+         cout << "low alg: the list is empty";
+     else
+         cout << "low alg: the lowest value in the list is " << *p << endl;
 
 
     return 0;
