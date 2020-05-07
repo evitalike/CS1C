@@ -1,0 +1,64 @@
+Script started on Thu May  7 13:26:37 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ ad[K[Kdate
+Thu May  7 13:26:39 PDT 2020
+bash-3.2$ ls -l
+total 40
+-rw-r--r--@ 1 ogg_  staff  11470 May  7 13:26 hw16.cpp
+drwxr-xr-x@ 3 ogg_  staff     96 May  7 13:25 hw16.dSYM
+-rw-r--r--  1 ogg_  staff     43 May  7 13:26 hw16.scr
+-rw-rw-r--@ 1 ogg_  staff    761 May  1 15:02 makefile
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw16.cpp -o hw16
+bash-3.2$ ./hw16[K[K[K[K[K[Kls -l
+total 320
+-rwxr-xr-x  1 ogg_  staff  141132 May  7 13:26 hw16
+-rw-r--r--@ 1 ogg_  staff   11470 May  7 13:26 hw16.cpp
+drwxr-xr-x@ 3 ogg_  staff      96 May  7 13:25 hw16.dSYM
+-rw-r--r--  1 ogg_  staff      43 May  7 13:26 hw16.scr
+-rw-rw-r--@ 1 ogg_  staff     761 May  1 15:02 makefile
+bash-3.2$ make all[K[K[K[K[K[K[K[K./hw16
+
+************************************** 
+*            Running hw16            * 
+*      Programmed by Kevin Nguyen    * 
+*                CS1C                * 
+************************************** 
+
+vector v: 40 5 4 3 2 -99 100 10 500 5 
+
+find alg: found value of in vector v 5
+
+find_if alg: found even value of in vector v 40
+find_if alg: found less_than_31 value of in vector v 5
+find_if alg: can't find less_than_v value in vector v
+
+find_if alg: found Less_than(4) value of in vector v -99
+
+shapes sorted by id: 10 5 1 100 101 102 
+
+shapes sorted by perimeter: 
+id 10, perimeter 5
+id 5, perimeter 10
+id 1, perimeter 15
+id 100, perimeter 400
+id 101, perimeter 40
+id 102, perimeter 60
+
+shapes sorted by area: 
+id 1, area -1
+id 5, area -1
+id 10, area -1
+id 100, area 625
+id 101, area 100
+id 102, area 225
+
+list l: 40 5 10 5 0 0 0 0 0 0 
+
+bash-3.2$ exit
+exit
+
+Script done on Thu May  7 13:26:54 2020

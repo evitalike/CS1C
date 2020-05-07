@@ -219,10 +219,13 @@ void list<Elem>::push_front(const Elem& v) // insert v at front
 double* low_doubles(double* first, double* last)
     // return a pointer to the element in [first,last) that has the lowest value
 {
-    double l = -1;
+    double l = 9999; // was -1
     double* low;
     for(double* p = first; p!=last; ++p)
-        if (*p < l) { low = p; l = *p; }
+        if (*p < l) {
+            low = p;
+            l = *p; 
+        }
     return low;
 }
 
@@ -311,8 +314,28 @@ int main()
 // WRITTEN ANSWERS
 
 // Q#1
+// An STL container is of type list, queue or similar. These are designed to be
+// the basic foundation of objects and data storage within computer languages.
+// E.g. Stacks, Queues, Lists, DoublyLinkedLists
+
+// An STL Iterator is a object that iterates itself through container types
+// or custom made object types in order to access data and information.
+// E.g. Iterator for a linked list that starts at the first node, and goes until 
+// it finds the last node, then return it's data.
+
+// An STL Algorithm is an algorithm that serves one of the containers a purpose
+// in accessing or setting data. 
+// E.g. An Algorithm that uses an iterator to sort the list by alphabetical order.
 
 // Q#2
+// By using plenty of references and pointers, using the iterator to the advantage
+// of the developer allows the simplicity of algorithm with less inputted numbers
+// such as size. Eliminating the variables needed to execute an algorithm will
+// overall efficiensize the program. 
 
 // Q#5
-
+// The outputs seem to be the same. Otherwise is broken with a large number 
+// represented by e. Therefore, the algorithms are similar in function, 
+// rather one simply returns the data from the actual list.
+// Whereas, the other creates an individual pointer that contains the data 
+// to be presented. 

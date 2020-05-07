@@ -1,0 +1,46 @@
+Script started on Fri May  1 15:00:20 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ ls -l
+total 40
+-rw-r--r--@ 1 ogg_  staff  10393 May  1 15:00 hw15.cpp
+drwxr-xr-x@ 3 ogg_  staff     96 May  1 00:12 hw15.dSYM
+-rw-r--r--  1 ogg_  staff     43 May  1 15:00 hw15.scr
+-rw-rw-r--@ 1 ogg_  staff    761 Apr 23 17:40 makefile
+bash-3.2$ date
+Fri May  1 15:00:24 PDT 2020
+bash-3.2$ make all
+g++ -std=c++14 -Wall -g hw15.cpp -o hw15
+bash-3.2$ ./hw15
+
+************************************** 
+*           Running HW15             * 
+*      Programmed by Kevin Nguyen    * 
+*               CS1C                 * 
+************************************** 
+
+5
+2
+7
+2
+1
+42
+q
+
+low_doubles alg: double array min value is -99.25
+
+low_doubles alg: double vector min value first half is 1
+low_doubles alg: double vector min value second half is -99.25
+
+low alg: double array min value is -99.25
+
+low alg: double vector min value first half is 1
+low alg: double vector min value second half is -99.25
+
+low alg: the lowest value in the list is 1
+bash-3.2$ exit
+exit
+
+Script done on Fri May  1 15:00:42 2020
